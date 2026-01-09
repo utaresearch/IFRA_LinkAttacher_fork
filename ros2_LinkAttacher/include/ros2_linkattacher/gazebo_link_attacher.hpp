@@ -31,7 +31,9 @@
 #ifndef GAZEBO_LINK_ATTACHER_HPP_
 #define GAZEBO_LINK_ATTACHER_HPP_
 
-#include <gazebo/common/Plugin.hh>
+//~ #include <gazebo/common/Plugin.hh>
+#include <gz/sim/System.hh>
+
 #include <memory>
 
 struct JointSTRUCT

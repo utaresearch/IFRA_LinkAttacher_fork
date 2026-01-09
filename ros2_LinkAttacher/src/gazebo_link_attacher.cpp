@@ -28,19 +28,29 @@
 # IFRA-Cranfield (2023) IFRA Gazebo-ROS2 Link Attacher. URL: https://github.com/IFRA-Cranfield/IFRA_LinkAttacher.
 */
 
-#include <gazebo/common/Plugin.hh>
-#include <gazebo/physics/Entity.hh>
-#include <gazebo/physics/Light.hh>
-#include <gazebo/physics/Link.hh>
-#include <gazebo/physics/Model.hh>
-#include <gazebo/physics/World.hh>
-#include <gazebo/physics/PhysicsEngine.hh>
+//~ #include <gazebo/common/Plugin.hh>
+//~ #include <gazebo/physics/Entity.hh>
+//~ #include <gazebo/physics/Light.hh>
+//~ #include <gazebo/physics/Link.hh>
+//~ #include <gazebo/physics/Model.hh>
+//~ #include <gazebo/physics/World.hh>
+//~ #include <gazebo/physics/PhysicsEngine.hh>
 
-#include <gazebo_ros/node.hpp>
+//~ #include <gazebo_ros/node.hpp>
+
+#include <gz/sim/Entity.hh>
+#include <gz/sim/Model.hh>
+#include <gz/sim/Link.hh>
+#include <gz/sim/Light.hh>
+#include <gz/sim/World.hh>
+#include <gz/physics/FeatureList.hh>
+
 #include <memory>
 
-#include "gazebo_ros/conversions/builtin_interfaces.hpp"
-#include "gazebo_ros/conversions/geometry_msgs.hpp"
+//~ #include "gazebo_ros/conversions/builtin_interfaces.hpp"
+//~ #include "gazebo_ros/conversions/geometry_msgs.hpp"
+#include <ros_gz_bridge/convert/builtin_interfaces.hpp>
+#include <ros_gz_bridge/convert/geometry_msgs.hpp>
 
 #include "ros2_linkattacher/gazebo_link_attacher.hpp"   // INCLUDE HADER FILE.
 #include <linkattacher_msgs/srv/attach_link.hpp>        // INCLUDE ROS2 SERVICE.

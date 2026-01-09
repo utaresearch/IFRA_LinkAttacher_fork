@@ -15,10 +15,15 @@
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
+<!--
   <depend>gazebo_ros</depend>
   <depend>gazebo_dev</depend>
   <depend>gazebo_msgs</depend>
+-->
+  <depend>ros_gz</depend>
   <depend>rclcpp</depend>
+  <depend>gz_sim_vendor</depend>
+  <depend>ros_gz_bridge</depend>
   
   <build_depend>linkattacher_msgs</build_depend>
 

@@ -35,9 +35,14 @@ endif()
 ############## COMPILE the LinkAttacher Gazebo Plugin ##############
 
 # Find required packages:
-find_package(gazebo_ros REQUIRED)
-find_package(gazebo_dev REQUIRED)
-find_package(gazebo_msgs REQUIRED)
+#~ find_package(gazebo_ros REQUIRED)
+#~ find_package(gazebo_dev REQUIRED)
+#~ find_package(gazebo_msgs REQUIRED)
+find_package(ros_gz REQUIRED)
+find_package(gz_sim_vendor REQUIRED)
+find_package(gz-sim8 REQUIRED)
+find_package(ros_gz_bridge REQUIRED)
+
 find_package(rclcpp REQUIRED)
 
 find_package(linkattacher_msgs REQUIRED)
@@ -53,14 +58,23 @@ link_directories(${GAZEBO_LIBRARY_DIRS})
 add_library(gazebo_link_attacher SHARED
   src/gazebo_link_attacher.cpp
 )
-target_link_libraries(gazebo_link_attacher ${GAZEBO_LIBRARIES})
+target_link_libraries(gazebo_link_attacher 
+  ${GAZEBO_LIBRARIES}
+    gz-sim8::gz-sim8
+    ros_gz_bridge::ros_gz_bridge
+)
+
+
 ament_target_dependencies(gazebo_link_attacher
   "rclcpp"
-  "gazebo_dev"
-  "gazebo_msgs"
-  "gazebo_ros"
-  "linkattacher_msgs"
+  #~ "gazebo_dev"
+  #~ "gazebo_msgs"
+  #~ "gazebo_ros"
+  #~ "ros_gz"
+  #~ "linkattacher_msgs"
+  #~ PUBLIC
 )
+
 ament_export_libraries(gazebo_link_attacher)
 install(
   TARGETS
